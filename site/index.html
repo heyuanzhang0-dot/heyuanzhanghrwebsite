@@ -1,0 +1,1168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Heyuan (Jett) Zhang - trilingual HR and recruiting operations professional in New York. Recruiting operations dashboards, people analytics and pipeline tracking.">
+<meta name="author" content="Heyuan (Jett) Zhang">
+<meta property="og:title" content="Heyuan (Jett) Zhang">
+<meta property="og:description" content="HR and recruiting operations. Selected work: an HR operations dashboard, a UN leadership engagement dashboard, and a time series study.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://heyuanzhang.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88' font-family='Georgia,serif'%3EJ%3C/text%3E%3C/svg%3E">
+<title>Heyuan (Jett) Zhang</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --paper:#FAFAFB;
+  --paper-2:#F2F1F4;
+  --ink:#121016;
+  --ink-2:#605D6B;
+  --ink-3:#8F8C9B;
+  --line:rgba(18,16,22,.13);
+  --glass-tint:rgba(255,255,255,.46);
+  --spec:rgba(255,255,255,.85);
+  --blob-op:.55;
+
+  --display:"Bodoni Moda","Iowan Old Style",Georgia,serif;
+  --sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --step-0:.8125rem;
+  --step-1:.9375rem;
+  --step-2:1.0625rem;
+  --step-3:clamp(1.3rem,1.05rem + 1vw,1.7rem);
+  --step-4:clamp(1.9rem,1.3rem + 2.2vw,2.7rem);
+  --step-5:clamp(2.6rem,1.1rem + 6.2vw,6.6rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C0B0F;
+    --paper-2:#151319;
+    --ink:#F3F2F6;
+    --ink-2:#9C99A8;
+    --ink-3:#6E6B7A;
+    --line:rgba(243,242,246,.15);
+    --glass-tint:rgba(255,255,255,.06);
+    --spec:rgba(255,255,255,.5);
+    --blob-op:.42;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C0B0F;
+  --paper-2:#151319;
+  --ink:#F3F2F6;
+  --ink-2:#9C99A8;
+  --ink-3:#6E6B7A;
+  --line:rgba(243,242,246,.15);
+  --glass-tint:rgba(255,255,255,.06);
+  --spec:rgba(255,255,255,.5);
+  --blob-op:.42;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:var(--step-1);
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding-inline:clamp(20px,4vw,56px);
+}
+a{color:inherit}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:var(--step-0);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  margin:0;
+}
+
+/* ---------- loader ---------- */
+.loader{display:none}
+.js .loader{
+  display:grid;
+  place-items:center;
+  position:fixed;
+  inset:0;
+  z-index:80;
+  background:var(--paper);
+  transition:opacity .7s cubic-bezier(.4,0,.2,1),visibility .7s;
+}
+.js body.ready .loader{opacity:0;visibility:hidden}
+.loader__inner{display:grid;justify-items:center;gap:10px;text-align:center;overflow:visible}
+.loader__ring{width:clamp(88px,14vw,116px);height:auto;margin-bottom:30px;transform:rotate(-90deg);overflow:visible}
+.loader__ring circle{fill:none}
+.loader__ring .bg{stroke:var(--line);stroke-width:1}
+.loader__ring .fg{stroke:var(--ink);stroke-width:1.25;stroke-linecap:round}
+.loader__name{
+  font-family:var(--display);
+  font-size:clamp(1.9rem,1.1rem + 3.2vw,3.4rem);
+  font-weight:400;
+  letter-spacing:-.01em;
+  line-height:1.24;
+  padding-bottom:.14em;
+  margin:0;
+}
+.loader__pct{font-family:var(--mono);font-size:var(--step-1);color:var(--ink-2);font-variant-numeric:tabular-nums}
+
+/* ---------- top bar ---------- */
+.topbar{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  flex-wrap:wrap;
+  padding-block:26px 0;
+}
+.topbar__mark{font-family:var(--display);font-size:var(--step-2);letter-spacing:.02em}
+.topbar__meta{display:flex;gap:clamp(14px,3vw,34px);flex-wrap:wrap}
+
+/* ---------- hero ---------- */
+.hero{
+  padding-block:clamp(58px,10vw,120px) clamp(40px,7vw,76px);
+  display:grid;
+  gap:clamp(22px,3vw,34px);
+}
+.hero__name{
+  font-family:var(--display);
+  font-size:var(--step-5);
+  font-weight:400;
+  line-height:.92;
+  letter-spacing:-.028em;
+  margin:0;
+  text-wrap:balance;
+}
+.hero__name .word{display:inline-block;white-space:nowrap}
+.hero__name .char{display:inline-block;will-change:transform}
+.js .hero__name .char{transform:translateY(105%);opacity:0}
+.js body.ready .hero__name .char{
+  transform:none;opacity:1;
+  transition:transform 1.05s cubic-bezier(.22,1,.32,1) var(--d),opacity .7s linear var(--d);
+}
+.hero__name .mask{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.26em;margin-bottom:-.2em}
+
+.hero__row{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:clamp(24px,5vw,64px);flex-wrap:wrap;
+  border-top:1px solid var(--line);
+  padding-top:22px;
+}
+.hero__text{display:grid;gap:14px;max-width:62ch}
+.hero__lede{
+  margin:0;
+  font-size:var(--step-2);
+  color:var(--ink);
+  line-height:1.5;
+}
+.hero__lede b{font-weight:700}
+.hero__sub{margin:0;color:var(--ink-2);line-height:1.6;font-size:var(--step-1)}
+.hero__tools{
+  margin:4px 0 0;font-family:var(--mono);font-size:var(--step-0);
+  letter-spacing:.06em;color:var(--ink-3);line-height:1.7;
+}
+.hero__cue{display:flex;align-items:center;gap:10px;color:var(--ink-3)}
+.hero__cue span{font-family:var(--mono);font-size:var(--step-0);letter-spacing:.12em;text-transform:uppercase}
+.hero__cue i{
+  display:block;width:1px;height:34px;background:var(--ink-3);transform-origin:top;
+  animation:cue 2.4s ease-in-out infinite;
+}
+@keyframes cue{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+
+/* ---------- deck ---------- */
+.deck-section{padding-block:clamp(28px,5vw,56px) clamp(48px,8vw,96px)}
+.deck-head{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:20px;margin-bottom:clamp(18px,3vw,34px);
+}
+.deck-nav{display:flex;align-items:center;gap:14px}
+.deck-nav__count{font-family:var(--mono);font-size:var(--step-0);color:var(--ink-2);font-variant-numeric:tabular-nums;letter-spacing:.08em}
+.btn-round{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--line);background:transparent;color:var(--ink);
+  cursor:pointer;display:grid;place-items:center;
+  transition:background .35s ease,border-color .35s ease,transform .35s ease;
+}
+.btn-round:hover{background:var(--paper-2);transform:translateY(-1px)}
+.btn-round:disabled{opacity:.3;cursor:default;transform:none}
+.btn-round svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.4}
+
+.stage{
+  position:relative;
+  height:clamp(370px,46vw,430px);
+  perspective:1400px;
+  touch-action:pan-y;
+  cursor:grab;
+  isolation:isolate;
+}
+.stage:active{cursor:grabbing}
+.field{position:absolute;inset:-12% -8%;z-index:0;pointer-events:none;filter:blur(72px);opacity:var(--blob-op)}
+.blob{position:absolute;border-radius:50%;transition:background-color 1s cubic-bezier(.4,0,.2,1)}
+.blob--a{width:46%;padding-top:46%;left:6%;top:4%}
+.blob--b{width:40%;padding-top:40%;right:8%;top:30%}
+.blob--c{width:34%;padding-top:34%;left:34%;bottom:2%}
+
+.card{
+  position:absolute;top:50%;left:50%;z-index:1;
+  width:min(410px,80vw);
+  height:clamp(330px,42vw,386px);
+  border-radius:26px;
+  padding:clamp(22px,3.2vw,30px);
+  display:flex;flex-direction:column;
+  background:linear-gradient(158deg,
+      color-mix(in oklab,var(--c1) 62%,transparent),
+      color-mix(in oklab,var(--c3) 24%,transparent));
+  backdrop-filter:blur(16px) saturate(1.5);
+  -webkit-backdrop-filter:blur(16px) saturate(1.5);
+  box-shadow:0 28px 70px -32px color-mix(in oklab,var(--c4) 60%,transparent),
+             inset 0 1px 0 var(--spec);
+  transform-style:preserve-3d;
+  transition:transform 1s cubic-bezier(.22,1,.32,1),opacity .8s ease;
+  will-change:transform;
+}
+.card::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:conic-gradient(from 210deg,var(--c4),var(--c2),#ffffff,var(--c3),var(--c4));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  opacity:.6;pointer-events:none;
+}
+.card::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(340px 340px at var(--mx,50%) var(--my,12%),var(--spec),transparent 62%);
+  opacity:.32;transition:opacity .5s ease;
+}
+.card.is-active::after{opacity:.5}
+.card *{position:relative;z-index:1}
+
+.card__tool{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+  color:color-mix(in oklab,var(--c4) 78%,var(--ink));
+}
+.card__title{
+  font-family:var(--display);font-weight:400;
+  font-size:var(--step-4);line-height:1.04;letter-spacing:-.02em;
+  margin:14px 0 0;color:var(--ink);
+}
+.card__desc{margin:14px 0 0;font-size:var(--step-1);line-height:1.6;color:color-mix(in oklab,var(--ink) 76%,var(--c4))}
+.card.is-active{cursor:pointer}
+.card__link{
+  margin:auto 0 0;padding:18px 0 6px;
+  border-top:1px solid color-mix(in oklab,var(--c4) 26%,transparent);
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;color:color-mix(in oklab,var(--c4) 82%,var(--ink));
+}
+.card__link svg{width:22px;height:10px;fill:none;stroke:currentColor;stroke-width:1.2;transition:transform .5s cubic-bezier(.22,1,.32,1)}
+.card__link:hover svg{transform:translateX(6px)}
+
+.dots{display:flex;gap:8px;justify-content:center;margin-top:clamp(18px,3vw,30px)}
+.dot{width:34px;height:2px;border:0;padding:0;background:var(--line);cursor:pointer;transition:background .4s ease}
+.dot[aria-current="true"]{background:var(--ink)}
+
+/* ---------- index ---------- */
+.index{padding-block:clamp(28px,5vw,52px) clamp(48px,8vw,90px);border-top:1px solid var(--line)}
+.index__list{list-style:none;margin:22px 0 0;padding:0;display:grid}
+.row{
+  display:grid;grid-template-columns:minmax(140px,1fr) minmax(0,2.1fr) auto;
+  gap:clamp(14px,3vw,40px);align-items:baseline;
+  width:100%;text-align:left;
+  padding-block:22px;
+  border:0;border-top:1px solid var(--line);
+  background:transparent;color:inherit;font:inherit;cursor:pointer;
+  transition:padding-inline .45s cubic-bezier(.22,1,.32,1),background .45s ease;
+}
+.index__list li:last-child .row{border-bottom:1px solid var(--line)}
+.row:hover{padding-inline:12px;background:var(--paper-2)}
+.row__title{font-family:var(--display);font-size:var(--step-3);line-height:1.15;letter-spacing:-.015em}
+.row__desc{color:var(--ink-2);font-size:var(--step-1);margin:0;max-width:52ch}
+.row__ramp{display:flex;gap:4px;align-self:center}
+.row__ramp i{width:12px;height:26px;border-radius:2px;display:block}
+
+/* ---------- footer ---------- */
+.foot{
+  border-top:1px solid var(--line);
+  padding-block:clamp(36px,6vw,64px) 48px;
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end;
+}
+.foot__mail{
+  font-family:var(--display);font-size:var(--step-3);text-decoration:none;
+  border-bottom:1px solid var(--line);padding-bottom:3px;
+  transition:border-color .4s ease;
+}
+.foot__mail:hover{border-color:var(--ink)}
+.foot__note{color:var(--ink-3);max-width:34ch;font-size:var(--step-0)}
+
+/* ---------- case study ---------- */
+.case{display:block}
+.case[hidden]{display:none}
+.case,#landing{transition:opacity .55s ease,transform .75s cubic-bezier(.22,1,.32,1)}
+.is-entering{opacity:0;transform:translateY(18px)}
+
+/* blocks rise in as they scroll into view, on the landing page and in a case study */
+.js .r{opacity:0;transform:translateY(26px)}
+.js .r.in{opacity:1;transform:none;transition:opacity 1s ease,transform 1.1s cubic-bezier(.22,1,.32,1)}
+.case__bar{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in oklab,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.case__bar div{
+  max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,56px);
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.back{
+  display:inline-flex;align-items:center;gap:9px;
+  border:0;background:transparent;padding:0;cursor:pointer;color:var(--ink);
+  font-family:var(--mono);font-size:var(--step-0);letter-spacing:.12em;text-transform:uppercase;
+}
+.back svg{width:20px;height:10px;fill:none;stroke:currentColor;stroke-width:1.3;transition:transform .4s cubic-bezier(.22,1,.32,1)}
+.back:hover svg{transform:translateX(-5px)}
+.case__bartools{font-family:var(--mono);font-size:var(--step-0);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:right}
+
+.case__body{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,56px) 40px}
+.case__head{padding-block:clamp(40px,7vw,78px) clamp(24px,4vw,40px)}
+.case__swatch{display:flex;gap:5px;margin-bottom:22px}
+.case__swatch i{width:34px;height:6px;border-radius:2px;display:block}
+.case__title{
+  font-family:var(--display);font-weight:400;margin:12px 0 0;
+  font-size:clamp(2.2rem,1.2rem + 4.2vw,4.2rem);line-height:1.02;letter-spacing:-.025em;
+  text-wrap:balance;
+}
+.case__sum{margin:20px 0 0;max-width:56ch;font-size:var(--step-2);line-height:1.55;color:var(--ink-2)}
+.meta{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 28px;
+  margin:clamp(28px,4vw,44px) 0 0;padding-top:22px;border-top:1px solid var(--line);
+}
+.meta div{display:grid;gap:5px}
+.meta dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.meta dd{margin:0;font-size:var(--step-1);line-height:1.45}
+
+.sec{padding-block:clamp(30px,5vw,52px);border-top:1px solid var(--line)}
+.sec__h{
+  font-family:var(--display);font-weight:400;margin:0 0 18px;
+  font-size:var(--step-3);letter-spacing:-.015em;
+}
+.sec p{margin:0 0 14px;max-width:66ch;line-height:1.65}
+.sec p:last-child{margin-bottom:0}
+.sec strong{font-weight:700}
+
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:4px 0 22px}
+.flow__step{
+  flex:1 1 180px;min-width:0;padding:14px 16px;border-radius:12px;
+  background:color-mix(in oklab,var(--c1) 55%,var(--paper));
+  border:1px solid color-mix(in oklab,var(--c3) 30%,transparent);
+}
+.flow__step b{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in oklab,var(--c4) 80%,var(--ink));margin-bottom:5px}
+.flow__step span{font-size:.875rem;line-height:1.45;color:var(--ink-2)}
+
+.finds{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.finds li{padding-block:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(96px,auto) 1fr;gap:8px 26px;align-items:baseline}
+.finds li:first-child{border-top:0;padding-top:4px}
+.finds .fig{font-family:var(--mono);font-size:clamp(1.2rem,.9rem + 1vw,1.6rem);font-variant-numeric:tabular-nums;color:color-mix(in oklab,var(--c4) 80%,var(--ink));letter-spacing:-.01em}
+.finds .txt{margin:0;line-height:1.6;max-width:62ch}
+.finds .txt b{font-weight:700}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(22px,3.5vw,44px);margin-top:6px}
+.panel__h{
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid color-mix(in oklab,var(--c4) 30%,transparent);
+  color:color-mix(in oklab,var(--c4) 78%,var(--ink));
+}
+.panel .acts li{align-items:baseline}
+.panel .acts b{display:block;font-weight:700;margin-bottom:3px}
+.panel .acts span{color:var(--ink-2);font-size:.9rem;line-height:1.55}
+
+.acts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.acts li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;line-height:1.6}
+.acts li::before{
+  content:"";width:7px;height:7px;margin-top:.55em;border-radius:2px;
+  background:color-mix(in oklab,var(--c4) 70%,transparent);
+}
+
+figure.chart{margin:26px 0 0;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--paper-2)}
+figure.chart figcaption{font-size:.82rem;color:var(--ink-2);margin-top:16px;line-height:1.5;max-width:none}
+.chart__title{font-family:var(--mono);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 16px}
+.bars{display:grid;gap:9px}
+.bars__row{display:grid;grid-template-columns:minmax(92px,132px) 1fr minmax(44px,auto);gap:12px;align-items:center}
+.bars__lab{font-size:.8rem;color:var(--ink-2);line-height:1.25}
+.bars__track{position:relative;height:16px;background:color-mix(in oklab,var(--ink) 7%,transparent);border-radius:4px;overflow:hidden}
+.bars__fill{display:block;height:100%;min-width:2px;border-radius:0 4px 4px 0;background:color-mix(in oklab,var(--c4) 72%,var(--c3));transition:filter .3s ease}
+.bars__row:hover .bars__fill{filter:brightness(1.12)}
+.bars__val{font-family:var(--mono);font-size:.8rem;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink)}
+.bars__target{position:absolute;top:-3px;bottom:-3px;width:0;border-left:2px dashed color-mix(in oklab,var(--ink) 45%,transparent)}
+.chart__note{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:14px 0 0}
+
+table.tbl{width:100%;border-collapse:collapse;font-size:.875rem}
+table.tbl th,table.tbl td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+table.tbl th{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400}
+table.tbl td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+table.tbl tr.pick td{background:color-mix(in oklab,var(--c1) 50%,transparent)}
+.tblwrap{overflow-x:auto}
+
+.shots{display:grid;gap:clamp(24px,4vw,40px);margin-top:4px}
+.shot{margin:0}
+.shot__btn{
+  display:block;width:100%;padding:0;cursor:zoom-in;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  background:var(--paper-2);
+  transition:border-color .35s ease,transform .35s cubic-bezier(.22,1,.32,1);
+}
+.shot__btn:hover{border-color:color-mix(in oklab,var(--c4) 45%,transparent);transform:translateY(-2px)}
+.shot__btn img{display:block;width:100%;height:auto;max-width:100%}
+.shot figcaption{margin-top:12px;font-size:.85rem;line-height:1.5;color:var(--ink-2);max-width:82ch}
+.shot figcaption b{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:5px;font-weight:400}
+
+.lightbox{
+  position:fixed;inset:0;z-index:90;
+  display:grid;place-items:center;padding:clamp(16px,4vw,48px);
+  background:color-mix(in oklab,var(--ink) 88%,transparent);
+  cursor:zoom-out;
+}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:100%;max-height:88vh;width:auto;height:auto;border-radius:8px;background:#fff}
+.lightbox__close{
+  position:absolute;top:16px;right:18px;
+  border:0;background:transparent;color:#fff;cursor:pointer;
+  font-family:var(--mono);font-size:var(--step-0);letter-spacing:.12em;text-transform:uppercase;
+}
+
+.case__foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;padding-block:clamp(30px,5vw,50px);border-top:1px solid var(--line)}
+.case__next{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+  font-family:var(--display);font-size:var(--step-3);
+  border-bottom:1px solid var(--line);padding-bottom:3px;
+}
+.case__next:hover{border-color:var(--ink)}
+.disclaim{font-size:.8rem;color:var(--ink-3);max-width:60ch;line-height:1.5}
+
+@media (max-width:600px){
+  .finds li{grid-template-columns:1fr;gap:4px}
+  .bars__row{grid-template-columns:1fr;gap:4px}
+  .bars__val{text-align:left}
+}
+
+
+@media (max-width:720px){
+  .row{grid-template-columns:1fr;gap:8px}
+  .row__ramp{align-self:start;margin-top:6px}
+  .hero__cue{display:none}
+}
+@media (max-width:560px){
+  .stage{height:420px}
+  .card{height:388px;width:86vw;padding:20px}
+  .card__desc{font-size:.875rem;line-height:1.55}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .js .hero__name .char,.js .reveal,.js .case .r{transform:none;opacity:1}
+}
+</style>
+<style>
+*{box-sizing:border-box}
+img{max-width:100%}
+[hidden]{display:none !important}
+</style>
+</head>
+<body>
+
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__ring" viewBox="0 0 120 120" aria-hidden="true">
+      <circle class="bg" cx="60" cy="60" r="46"/>
+      <circle class="fg" cx="60" cy="60" r="46"/>
+    </svg>
+    <p class="loader__name">Heyuan (Jett) Zhang</p>
+    <p class="loader__pct" id="pct">0%</p>
+  </div>
+</div>
+
+<div class="wrap" id="landing">
+
+  <header class="topbar">
+    <span class="topbar__mark">JZ</span>
+    <div class="topbar__meta eyebrow">
+      <span>People Analytics &amp; TA Ops</span>
+      <span>New York</span>
+      <span>2026</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero__name" id="heroName">Heyuan (Jett) Zhang</h1>
+    <div class="hero__row">
+      <div class="hero__text">
+        <p class="hero__lede">Trilingual <b>HR and recruiting operations</b> professional, working across high volume screening, interview coordination, ATS data hygiene and pipeline tracking.</p>
+        <p class="hero__sub">I keep recruiting records accurate, build the trackers and dashboards a hiring team actually runs on, and coordinate stakeholders through fast moving cycles. The result is pipeline visibility, quicker follow up and hiring readiness that rests on clean data rather than on chasing people.</p>
+        <p class="hero__tools">Greenhouse · Workday Recruiting · Airtable · Excel · Looker Studio · Power BI · Chinese, English, Spanish</p>
+      </div>
+      <div class="hero__cue" aria-hidden="true"><i></i><span>Selected work</span></div>
+    </div>
+  </section>
+
+  <section class="deck-section reveal" aria-labelledby="workHead">
+    <div class="deck-head">
+      <p class="eyebrow" id="workHead">Three projects</p>
+      <div class="deck-nav">
+        <span class="deck-nav__count" id="count">01 / 03</span>
+        <button class="btn-round" id="prev" type="button" aria-label="Previous project">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="btn-round" id="next" type="button" aria-label="Next project">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="stage" id="stage" tabindex="0" role="group" aria-label="Project cards — use arrow keys or drag">
+      <div class="field" aria-hidden="true">
+        <span class="blob blob--a" id="blobA"></span>
+        <span class="blob blob--b" id="blobB"></span>
+        <span class="blob blob--c" id="blobC"></span>
+      </div>
+
+      <article class="card" data-i="0" style="--c1:#EEF0F8;--c2:#C6CFE8;--c3:#8D9CCB;--c4:#3F4E85">
+        <p class="card__tool">SQL · Excel · Looker Studio</p>
+        <h2 class="card__title">HR Operations Dashboard</h2>
+        <p class="card__desc">A recruiting operations dashboard that keeps itself current: SQL into Excel into Looker Studio, so nobody rebuilds it every month. It scores data hygiene and splits each SLA breach by the person who holds the step.</p>
+        <a class="card__link" href="#" data-case="0">Read the case study
+          <svg viewBox="0 0 24 10" aria-hidden="true"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+        </a>
+      </article>
+
+      <article class="card" data-i="1" style="--c1:#F7EFE7;--c2:#E9D2B9;--c3:#D0A477;--c4:#8E6434">
+        <p class="card__tool">Excel · Power BI</p>
+        <h2 class="card__title">LIDERA Engagement</h2>
+        <p class="card__desc">Survey and attendance data cleaned in Excel, then modelled in Power BI for LIDERA, the UN's internal leadership platform. Built so senior leadership can see which events land and where the strategy needs to change.</p>
+        <a class="card__link" href="#" data-case="1">Read the case study
+          <svg viewBox="0 0 24 10" aria-hidden="true"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+        </a>
+      </article>
+
+      <article class="card" data-i="2" style="--c1:#EAF2EE;--c2:#C2DBD0;--c3:#82B2A1;--c4:#3C6E5E">
+        <p class="card__tool">SPSS · R Studio</p>
+        <h2 class="card__title">Determinants of CO<sub>2</sub> Emissions</h2>
+        <p class="card__desc">A time-series study of whether a falling coal share actually lowers CO<sub>2</sub> intensity. Built in R over 31 years: stationarity tests, ARIMA selection, then ARIMAX with GDP per capita and a human rights index.</p>
+        <a class="card__link" href="#" data-case="2">Read the case study
+          <svg viewBox="0 0 24 10" aria-hidden="true"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+        </a>
+      </article>
+    </div>
+
+    <div class="dots" id="dots" role="tablist" aria-label="Choose project"></div>
+  </section>
+
+  <section class="index reveal" aria-labelledby="indexHead">
+    <p class="eyebrow" id="indexHead">Index</p>
+    <ul class="index__list">
+      <li>
+        <button class="row" type="button" data-jump="0">
+          <span class="eyebrow">SQL · Excel · Looker Studio</span>
+          <span>
+            <span class="row__title">HR Operations Dashboard</span>
+            <p class="row__desc">Refreshes on its own. Hygiene scorecard, SLA breaches split by owner, ten findings with actions.</p>
+          </span>
+          <span class="row__ramp" aria-hidden="true"><i style="background:#EEF0F8"></i><i style="background:#C6CFE8"></i><i style="background:#8D9CCB"></i><i style="background:#3F4E85"></i></span>
+        </button>
+      </li>
+      <li>
+        <button class="row" type="button" data-jump="1">
+          <span class="eyebrow">Excel · Power BI</span>
+          <span>
+            <span class="row__title">LIDERA Engagement</span>
+            <p class="row__desc">Built for UN senior leadership: which events land, and where the strategy needs to change.</p>
+          </span>
+          <span class="row__ramp" aria-hidden="true"><i style="background:#F7EFE7"></i><i style="background:#E9D2B9"></i><i style="background:#D0A477"></i><i style="background:#8E6434"></i></span>
+        </button>
+      </li>
+      <li>
+        <button class="row" type="button" data-jump="2">
+          <span class="eyebrow">SPSS · R</span>
+          <span>
+            <span class="row__title">Determinants of CO<sub>2</sub> Emissions</span>
+            <p class="row__desc">ARIMA and ARIMAX over 31 years, reported for a reader who will not run the model themselves.</p>
+          </span>
+          <span class="row__ramp" aria-hidden="true"><i style="background:#EAF2EE"></i><i style="background:#C2DBD0"></i><i style="background:#82B2A1"></i><i style="background:#3C6E5E"></i></span>
+        </button>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <a class="foot__mail" href="mailto:heyuanzhang0@gmail.com">heyuanzhang0@gmail.com</a>
+    <p class="foot__note">Open to people analytics, HR operations and talent acquisition roles in New York.</p>
+  </footer>
+
+</div>
+
+<article class="case" id="case-0" hidden style="--c1:#EEF0F8;--c2:#C6CFE8;--c3:#8D9CCB;--c4:#3F4E85">
+  <div class="case__bar"><div>
+    <button class="back" type="button"><svg viewBox="0 0 24 10" aria-hidden="true"><path d="M24 5H2M7 1L2 5l5 4"/></svg>Index</button>
+    <span class="case__bartools">SQL · Excel · Looker Studio</span>
+  </div></div>
+  <div class="case__body">
+    <header class="case__head">
+      <p class="eyebrow">Case study 01</p>
+      <h1 class="case__title" tabindex="-1">HR Operations Dashboard</h1>
+      <p class="case__sum">A recruiting operations dashboard that keeps itself current, built around the question a talent acquisition team is actually asked every week: what is broken right now, and who has to fix it.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Sole builder: data model, SQL, Excel layer, dashboard</dd></div>
+        <div><dt>Stack</dt><dd>SQL, Excel, Looker Studio</dd></div>
+        <div><dt>Scope</dt><dd>40 requisitions, 1,145 applications, 1,831 stage transitions</dd></div>
+        <div><dt>Period</dt><dd>Three and a half months of data</dd></div>
+      </dl>
+    </header>
+
+    <section class="sec">
+      <h2 class="sec__h">The problem</h2>
+      <p>Most recruiting dashboards report outcomes, and get read once a month. But the daily work of a TA operations role is data hygiene: requisitions nobody closed, candidates nobody moved, scorecards nobody submitted. So outcomes stay on page one, and the rest of the dashboard answers a different question: where is the data wrong, and who has to fix it.</p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">How it is built</h2>
+      <div class="flow">
+        <div class="flow__step"><b>1 · SQL</b><span>Pulls requisitions, applications, stage transitions and interviews out of the source tables into one flat extract.</span></div>
+        <div class="flow__step"><b>2 · Excel</b><span>A summary layer of live formulas turns the detail into eight aggregate sheets. Change the snapshot date in one cell and every rate, flag and SLA judgement recalculates.</span></div>
+        <div class="flow__step"><b>3 · Looker Studio</b><span>Four report pages read the summary layer, not the raw detail, so the dashboard stays fast and nobody rebuilds it each month.</span></div>
+      </div>
+      <p><strong>Page one, executive summary.</strong> About thirty five KPIs, each with a target and a plain reading of what the number means.</p>
+      <p><strong>Page two, ops console.</strong> SLA breach by stage, breach by owner role, a hygiene score per recruiter, and live lists of stale candidates and outstanding scorecards.</p>
+      <p><strong>Page three, pipeline deep dive.</strong> Funnel, pass rates, applicants per requisition, source volume against source quality.</p>
+      <p><strong>Page four, findings.</strong> Ten findings, each with the current metric, the target, an owner and an effort estimate.</p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">The dashboard</h2>
+      <div class="shots">
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/hr-1.jpg" width="1600" height="1200" loading="lazy" alt="Executive summary page showing eight KPI tiles, time to fill against target by department, requisition status by department, applications by month and SLA breach rate by month."></button>
+          <figcaption><b>Page 1 · Executive summary</b>Eight headline KPIs, time to fill against target by department, and the monthly SLA breach trend. Every chart carries a one line reading underneath so the page can be understood without a presenter.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/hr-2.jpg" width="1600" height="1200" loading="lazy" alt="Ops console page showing average days in stage against target, SLA breach rate by stage and by owner role, a hygiene scorecard table for five recruiters, and charts of stale candidates and outstanding scorecards."></button>
+          <figcaption><b>Page 2 · Ops console</b>Days in stage against target, breach rate split by stage and by owner role, the recruiter hygiene scorecard, and live lists of stale candidates and outstanding scorecards. This is the page the operations work actually runs from.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/hr-3.jpg" width="1600" height="1200" loading="lazy" alt="Pipeline deep dive page showing the six stage funnel, pass rate from previous stage, applicants per requisition by department, a source volume versus hire rate scatter plot and a source performance table."></button>
+          <figcaption><b>Page 3 · Pipeline deep dive</b>Funnel and pass rates, applicants per requisition against a healthy floor, and source volume plotted against source quality so high volume channels with low hire rates are visible.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/hr-4.jpg" width="1600" height="1200" loading="lazy" alt="Findings page listing ten findings in a table with recommended action, owner, effort, current metric and target for each."></button>
+          <figcaption><b>Page 4 · Findings</b>Ten findings, each with the live metric, its target, a recommended action, an owner and an effort estimate. The bottom paragraph is the summary a director can read in thirty seconds.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">What it found</h2>
+      <ul class="finds">
+        <li><span class="fig">9.3 days</span><p class="txt">Marketing hiring managers take <b>9.3 days</b> to return interview feedback against a five day target, close to twice the next slowest department. Marketing's overall time to fill is 68 days against a 45 day target.</p></li>
+        <li><span class="fig">38% / 33%</span><p class="txt">Hiring managers breach SLA more often than recruiters do. Splitting breach rate by the role that actually holds the step changes the conversation from "recruiting is slow" to a named owner.</p></li>
+        <li><span class="fig">18 of 40</span><p class="txt">Eighteen requisitions carry at least one open data issue, and five filled requisitions were never closed in the ATS. The open requisition count leadership sees is wrong.</p></li>
+        <li><span class="fig">60 : 1</span><p class="txt">1,145 applications produced 19 hires. Data and Analytics gets 9 applicants per requisition against a healthy floor of 20, which is a sourcing problem rather than a process problem.</p></li>
+        <li><span class="fig">40 / 44</span><p class="txt">Forty candidates have not moved stage in over two weeks, and forty four scorecards are past the 48 hour SLA.</p></li>
+      </ul>
+
+      <figure class="chart">
+        <p class="chart__title">Pipeline funnel, candidates reaching each stage</p>
+        <div class="bars">
+          <div class="bars__row"><span class="bars__lab">Applied</span><span class="bars__track"><span class="bars__fill" style="width:100%"></span></span><span class="bars__val">1,145</span></div>
+          <div class="bars__row"><span class="bars__lab">Recruiter screen</span><span class="bars__track"><span class="bars__fill" style="width:30%"></span></span><span class="bars__val">344</span></div>
+          <div class="bars__row"><span class="bars__lab">HM interview</span><span class="bars__track"><span class="bars__fill" style="width:16.2%"></span></span><span class="bars__val">186</span></div>
+          <div class="bars__row"><span class="bars__lab">Onsite panel</span><span class="bars__track"><span class="bars__fill" style="width:8.6%"></span></span><span class="bars__val">98</span></div>
+          <div class="bars__row"><span class="bars__lab">Offer</span><span class="bars__track"><span class="bars__fill" style="width:4.3%"></span></span><span class="bars__val">49</span></div>
+          <div class="bars__row"><span class="bars__lab">Hired</span><span class="bars__track"><span class="bars__fill" style="width:1.7%"></span></span><span class="bars__val">19</span></div>
+        </div>
+        <figcaption>The sharpest drop is the first one. Seventy per cent of applicants never reach a recruiter screen, which puts the weight of any improvement on screening capacity and on source quality rather than on later stages.</figcaption>
+      </figure>
+
+      <figure class="chart">
+        <p class="chart__title">SLA breach rate by stage, against a 15% target</p>
+        <div class="bars">
+          <div class="bars__row"><span class="bars__lab">Onsite panel</span><span class="bars__track"><span class="bars__fill" style="width:86%"></span><span class="bars__target" style="left:30%"></span></span><span class="bars__val">43%</span></div>
+          <div class="bars__row"><span class="bars__lab">Offer</span><span class="bars__track"><span class="bars__fill" style="width:80%"></span><span class="bars__target" style="left:30%"></span></span><span class="bars__val">40%</span></div>
+          <div class="bars__row"><span class="bars__lab">HM interview</span><span class="bars__track"><span class="bars__fill" style="width:72%"></span><span class="bars__target" style="left:30%"></span></span><span class="bars__val">36%</span></div>
+          <div class="bars__row"><span class="bars__lab">Applied</span><span class="bars__track"><span class="bars__fill" style="width:68%"></span><span class="bars__target" style="left:30%"></span></span><span class="bars__val">34%</span></div>
+          <div class="bars__row"><span class="bars__lab">Recruiter screen</span><span class="bars__track"><span class="bars__fill" style="width:57.6%"></span><span class="bars__target" style="left:30%"></span></span><span class="bars__val">29%</span></div>
+        </div>
+        <p class="chart__note">Dashed line: 15% target · Scale 0 to 50%</p>
+        <figcaption>Every stage runs at least twice its target. The two worst are the two that depend on hiring managers and panels, not on the recruiting team.</figcaption>
+      </figure>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">What I recommended</h2>
+      <ul class="acts">
+        <li>A standing Friday feedback slot for the two Marketing hiring managers, with an automatic reminder at 48 hours.</li>
+        <li>Report breach rate by owner role, so escalation reaches the person who holds the step.</li>
+        <li>Book the onsite panel when the hiring manager interview is scheduled, not after it is passed.</li>
+        <li>Send the stale list to each recruiter daily, instead of keeping a shared sheet nobody opens.</li>
+      </ul>
+      <p style="margin-top:18px">Ten findings in all, each with an owner and an effort estimate. Seven are low effort.</p>
+    </section>
+
+    <div class="case__foot">
+      <p class="disclaim">Built on a synthetic dataset for a fictional school network, generated and then reconciled independently so every summary figure ties back to the detail rows. Candidate records use anonymous references, not invented names.</p>
+      <a class="case__next" href="#" data-case="1">Next: LIDERA Engagement
+        <svg viewBox="0 0 24 10" width="24" height="10" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.2"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="case" id="case-1" hidden style="--c1:#F7EFE7;--c2:#E9D2B9;--c3:#D0A477;--c4:#8E6434">
+  <div class="case__bar"><div>
+    <button class="back" type="button"><svg viewBox="0 0 24 10" aria-hidden="true"><path d="M24 5H2M7 1L2 5l5 4"/></svg>Index</button>
+    <span class="case__bartools">Excel · Power BI</span>
+  </div></div>
+  <div class="case__body">
+    <header class="case__head">
+      <p class="eyebrow">Case study 02</p>
+      <h1 class="case__title" tabindex="-1">LIDERA Engagement</h1>
+      <p class="case__sum">LIDERA is the United Nations' internal leadership platform for staff. Our team built an engagement plan for it. My part was the dashboard that shows senior leadership which parts of the programme are working and which part of the strategy has to change.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Dashboard lead on a five person capstone team</dd></div>
+        <div><dt>Stack</dt><dd>Excel, Power BI</dd></div>
+        <div><dt>Scope</dt><dd>Attendance and post event survey data, five report pages</dd></div>
+        <div><dt>Client</dt><dd>United Nations, through IE New York College</dd></div>
+      </dl>
+    </header>
+
+    <section class="sec">
+      <h2 class="sec__h">The problem</h2>
+      <p>The programme was already running events and collecting feedback, but attendance sat in one export and survey responses in another, so nobody could see the two together. The reported numbers looked healthy: 4.53 out of 5, 87.5% saying they learned something new, 91% saying they would recommend it. The number next to them was not: only about 15% of attendees leave any feedback at all.</p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">How it is built</h2>
+      <div class="flow">
+        <div class="flow__step"><b>1 · Excel</b><span>Attendance exports and survey responses cleaned and joined on the event, with grade, region and duration normalised so they can be sliced.</span></div>
+        <div class="flow__step"><b>2 · Power BI</b><span>Five report pages: event performance, grade detail, reach and connection, in meeting duration, and attendance by continent.</span></div>
+        <div class="flow__step"><b>3 · Leadership</b><span>Each page answers one decision: what to programme, who to invite, and when to hold it.</span></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">The report</h2>
+      <div class="shots">
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/pb-1.jpg" width="1600" height="817" loading="lazy" alt="Power BI event performance page: recommendation rate, member reach and feedback participation rate cards on the left, a bar chart of event ratings from 4.9 to 4.5, a line chart of learning rates from 100 to 83 percent, and an event slicer."></button>
+          <figcaption><b>Event performance</b>Recommendation rate, reach and feedback participation on the left, with every event ranked by rating and by learning rate. Both series are sorted rather than filtered, so the weakest sessions surface without anyone going looking for them.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/pb-4.jpg" width="1600" height="1099" loading="lazy" alt="Grade details page: a pie chart of grade level share of participants, a donut of participant distribution by grade category, a bar chart of participation by grade level with counts removed, and a pie chart of gender composition by grade category."></button>
+          <figcaption><b>Grade details</b>Who is in the room. Share of participants by grade, the same population rolled up into grade categories, and gender composition within each category. Counts are removed here; the shares are what a programming decision actually turns on.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/pb-2.jpg" width="1600" height="793" loading="lazy" alt="Bubble chart of reach and connection rate against event rating, bubble size showing participation, with the largest bubble at the lowest rating of 4.0."></button>
+          <figcaption><b>Reach and connection against rating</b>Each bubble is an event, sized by participation. The largest one sits at the bottom of the rating axis, which is the whole argument against optimising for turnout in one picture.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/pb-3.jpg" width="1600" height="1143" loading="lazy" alt="Bar chart of average meeting duration in minutes by event, ranging from about 67 minutes down to 34, with an average card showing 51.08 minutes."></button>
+          <figcaption><b>Time in session</b>Average minutes stayed, by event. Duration is the closest available proxy for whether people were present or merely logged in, and it separates the formats far more sharply than the ratings do.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">What it led to</h2>
+      <p>Reading the dashboard against the member list and the event reports made the shape of the gap clear: the programme could see what happened inside a session, but very little about who was in the room or what happened to them afterwards. So the second half of the work was designing the intake that would fill it.</p>
+      <div class="split">
+        <div class="panel">
+          <h3 class="panel__h">Survey instruments I designed</h3>
+          <ul class="acts">
+            <li><span><b>Member profile survey</b>Captured once at onboarding or first registration. Grade, duty station, time in the system, the leadership challenges someone is currently facing, and the formats and time slots that suit them.</span></li>
+            <li><span><b>During event engagement survey</b>One short survey at the final break, for members who stayed through most of the session. Content relevance, what they are taking away, and what the programme should cover next.</span></li>
+            <li><span><b>Professional development pulse</b>Every three months to active members. What changed in their role since the last round, and how much the programme contributed to it.</span></li>
+            <li><span><b>Exit prompt</b>One tap when someone leaves a session early, so the reason is recorded instead of inferred.</span></li>
+            <li><span><b>Senior manager priority survey</b>Sent to P4 and above. What managers want developed in their teams over the next two years, and what would make it easier for those teams to take part.</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3 class="panel__h">How it reports</h3>
+          <ul class="acts">
+            <li><span><b>A standing readout for senior leadership</b>The dashboard is the reporting surface rather than a one off deck. Each cycle it answers the same three things: what the data shows now, what moved since the last cycle, and which programming decision that points to.</span></li>
+            <li><span><b>A loop back to members</b>Each session opens with a short recap of the last one, and a "what we heard" report shows members how their input reshaped topics and speakers.</span></li>
+            <li><span><b>Why that matters for the data</b>Visibility is what makes the next round of collection worth doing. People answer surveys when they can see the previous answers changed something.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="case__foot">
+      <p class="disclaim">Shown as rates and averages only. Headcount figures are withheld, and the member reach tile is redacted in the screenshot above.</p>
+      <a class="case__next" href="#" data-case="2">Next: Determinants of CO<sub>2</sub> Emissions
+        <svg viewBox="0 0 24 10" width="24" height="10" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.2"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="case" id="case-2" hidden style="--c1:#EAF2EE;--c2:#C2DBD0;--c3:#82B2A1;--c4:#3C6E5E">
+  <div class="case__bar"><div>
+    <button class="back" type="button"><svg viewBox="0 0 24 10" aria-hidden="true"><path d="M24 5H2M7 1L2 5l5 4"/></svg>Index</button>
+    <span class="case__bartools">SPSS · R Studio</span>
+  </div></div>
+  <div class="case__body">
+    <header class="case__head">
+      <p class="eyebrow">Case study 03</p>
+      <h1 class="case__title" tabindex="-1">Determinants of CO<sub>2</sub> Emissions</h1>
+      <p class="case__sum">A time series study with a narrow question: if the coal share of the United States power grid falls, does CO<sub>2</sub> intensity fall with it, and how quickly?</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Team of five. I ran the data analysis end to end</dd></div>
+        <div><dt>Stack</dt><dd>SPSS, R</dd></div>
+        <div><dt>Data</dt><dd>31 annual observations, 16 variables</dd></div>
+        <div><dt>Methods</dt><dd>ADF and KPSS, ACF and PACF, ARIMA, ARIMAX</dd></div>
+      </dl>
+    </header>
+
+    <section class="sec">
+      <h2 class="sec__h">The question</h2>
+      <p>Three hypotheses: that a lower coal share means lower CO<sub>2</sub> intensity in the same year and up to two years later; that the drop is larger when coal is replaced by renewables than by gas; and that the effect survives controls for demand, development and the policy shocks of 2010 and 2020.</p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">How it was modelled</h2>
+      <p>The dependent variable is roughly normal, with skewness of -0.54 and excess kurtosis of -1.16, so no transformation was warranted on distributional grounds. The series drifts downward with level shifts, the ACF decays slowly and the PACF cuts off at lag one, which points to differencing once rather than to an autoregressive term.</p>
+      <p>The independent variables are heavily collinear. Fossil and low carbon shares both correlate with CO<sub>2</sub> above 0.98 in absolute terms, and the coal fraction at t, t-1 and t-2 all correlate above 0.96. Putting them in together makes the coefficients unstable, so the specifications were kept parsimonious: one fuel mix proxy, one structural control, plus the policy dummies. Models were then selected on out of sample RMSE and MAE with residual diagnostics, not on raw correlations.</p>
+      <div class="tblwrap">
+        <table class="tbl">
+          <thead><tr><th>Model</th><th>Transformation</th><th class="num">AIC</th><th class="num">BIC</th><th>Remark</th></tr></thead>
+          <tbody>
+            <tr><td>ARIMA(0,1,0) with drift</td><td>None</td><td class="num">2593.4</td><td class="num">2597.6</td><td>Random walk with drift, best on the raw series</td></tr>
+            <tr class="pick"><td>ARIMA(0,2,1)</td><td>Box-Cox, &lambda; = 0.353</td><td class="num">-0.63</td><td class="num">3.53</td><td>Selected. Better fit after variance stabilisation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">The analysis</h2>
+      <div class="shots">
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/co2-06.jpg" width="1600" height="900" loading="lazy" alt="Slide showing the chosen ARIMA(0,1,0) model with AIC -112.0, BIC -110.6, a Ljung-Box test with p equal to 0.118, and residual plots."></button>
+          <figcaption><b>Model selection</b>auto.arima settles on ARIMA(0,1,0). Ljung-Box p = 0.118 and a clean residual ACF, with (1,1,0) and (0,1,1) tried and rejected.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/co2-36.jpg" width="1600" height="900" loading="lazy" alt="ARIMAX regression output with GDP per capita and human rights index coefficients, AIC 2266.69 and training set error measures."></button>
+          <figcaption><b>ARIMAX results</b>GDP per capita positive and strong, human rights index negative, mean absolute percentage error around 4.4%.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/co2-37.jpg" width="1600" height="900" loading="lazy" alt="Residual diagnostics: residual time series from 1960 to 2010, autocorrelation function with significant lags, and a histogram against a normal curve."></button>
+          <figcaption><b>Residual diagnostics</b>Spread is stable but the errors arrive in patterns. This is the limitation the write up leads with rather than buries.</figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot__btn" type="button"><img src="img/co2-38.jpg" width="1600" height="900" loading="lazy" alt="Forecast against actual emissions on the test set from 2010 to 2020 with prediction intervals."></button>
+          <figcaption><b>Forecast against actual</b>Held out test set, RMSE 2.37 billion and MAE 1.92 billion in CO<sub>2</sub> units.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">What it found</h2>
+      <ul class="finds">
+        <li><span class="fig">4.4%</span><p class="txt">The ARIMAX model tracks the emissions trend on a held out test set with a mean absolute percentage error of about <b>4.4%</b>. RMSE 2.37 billion and MAE 1.92 billion in CO<sub>2</sub> units.</p></li>
+        <li><span class="fig">GDP +</span><p class="txt">GDP per capita has a strong positive effect on emissions across every specification. Over this period, growth has not been decoupled from emissions.</p></li>
+        <li><span class="fig">HRI &minus;</span><p class="txt">The human rights index is negatively associated with emissions. Stronger institutions line up with lower emissions, although the design supports association rather than cause.</p></li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__h">Limitations, stated plainly</h2>
+      <ul class="acts">
+        <li>Residual autocorrelation, with a Ljung-Box p below 0.001, says the model still omits time dependent structure.</li>
+        <li>The predictors are too collinear for any single fuel share coefficient to be read as an effect size.</li>
+        <li>Thirty one annual observations is a short series for this many candidate regressors.</li>
+      </ul>
+      <p style="margin-top:18px">The honest reading is narrower than the headline: growth still drives emissions and governance tracks against them, so the lever is not the fuel mix alone.</p>
+    </section>
+
+    <div class="case__foot">
+      <p class="disclaim">Coursework in quantitative analysis, presented with four classmates. The analysis was mine: stationarity testing, model selection, the ARIMAX specifications and the residual diagnostics, in R with forecast, tseries, lmtest and car. Original dataset HRIDATA-2.sav.</p>
+      <a class="case__next" href="#" data-case="0">Next: HR Operations Dashboard
+        <svg viewBox="0 0 24 10" width="24" height="10" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.2"><path d="M0 5h22M17 1l5 4-5 4"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged view">
+  <button class="lightbox__close" id="lightboxClose" type="button">Close</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---- hero name split ---- */
+(function split(){
+  const el = document.getElementById('heroName');
+  const words = el.textContent.split(' ');
+  el.textContent = '';
+  let n = 0;
+  words.forEach((w, wi) => {
+    const word = document.createElement('span');
+    word.className = 'word';
+    [...w].forEach(ch => {
+      const mask = document.createElement('span');
+      mask.className = 'mask';
+      const c = document.createElement('span');
+      c.className = 'char';
+      c.textContent = ch;
+      c.style.setProperty('--d', (0.24 + n * 0.035) + 's');
+      n++;
+      mask.appendChild(c);
+      word.appendChild(mask);
+    });
+    el.appendChild(word);
+    if (wi < words.length - 1) el.appendChild(document.createTextNode(' '));
+  });
+})();
+
+/* ---- loader ---- */
+(function loader(){
+  const pct = document.getElementById('pct');
+  const arc = document.querySelector('.loader__ring .fg');
+  const len = arc && arc.getTotalLength ? arc.getTotalLength() : 0;
+  if (arc && len) {
+    arc.style.strokeDasharray = len;
+    arc.style.strokeDashoffset = len;
+  }
+  const finish = () => document.body.classList.add('ready');
+  const draw = t => {
+    pct.textContent = Math.round(t * 100) + '%';
+    if (arc && len) arc.style.strokeDashoffset = len * (1 - t);
+  };
+  if (reduced) { draw(1); finish(); return; }
+  const start = performance.now();
+  const dur = 1400;
+  (function tick(now){
+    const raw = Math.min(1, ((now || start) - start) / dur);
+    draw(raw < 1 ? 1 - Math.pow(1 - raw, 3) : 1); // ease out, lands exactly on 100%
+    if (raw < 1) requestAnimationFrame(tick); else setTimeout(finish, 260);
+  })(start);
+  setTimeout(finish, 2800);
+})();
+
+/* ---- deck ---- */
+(function deck(){
+  const stage = document.getElementById('stage');
+  const cards = [...stage.querySelectorAll('.card')];
+  const dotsWrap = document.getElementById('dots');
+  const count = document.getElementById('count');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const blobs = [document.getElementById('blobA'), document.getElementById('blobB'), document.getElementById('blobC')];
+  let active = 0;
+
+  cards.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot';
+    b.type = 'button';
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-label', 'Project ' + (i + 1));
+    b.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(b);
+  });
+  const dots = [...dotsWrap.children];
+
+  function paint(){
+    const s = cards[active].style;
+    blobs[0].style.backgroundColor = s.getPropertyValue('--c2').trim();
+    blobs[1].style.backgroundColor = s.getPropertyValue('--c3').trim();
+    blobs[2].style.backgroundColor = s.getPropertyValue('--c1').trim();
+  }
+
+  function layout(drag){
+    drag = drag || 0;
+    cards.forEach((c, i) => {
+      const d = i - active;
+      const x = d * 56 + drag;
+      c.style.transform =
+        'translate(-50%,-50%) translateX(' + x + '%) translateZ(' + (d === 0 ? 0 : -170) + 'px) rotateY(' + (d * -16) + 'deg) scale(' + (d === 0 ? 1 : 0.87) + ')';
+      c.style.opacity = Math.abs(d) > 1 ? 0 : (d === 0 ? 1 : 0.5);
+      c.style.zIndex = 10 - Math.abs(d);
+      c.style.pointerEvents = d === 0 ? 'auto' : 'none';
+      c.classList.toggle('is-active', d === 0);
+      c.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+    });
+    dots.forEach((b, i) => b.setAttribute('aria-current', i === active ? 'true' : 'false'));
+    count.textContent = String(active + 1).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+    prev.disabled = active === 0;
+    next.disabled = active === cards.length - 1;
+  }
+
+  function go(i){
+    active = Math.max(0, Math.min(cards.length - 1, i));
+    layout();
+    paint();
+  }
+
+  prev.addEventListener('click', () => go(active - 1));
+  next.addEventListener('click', () => go(active + 1));
+  stage.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(active + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(active - 1); }
+  });
+  document.querySelectorAll('[data-jump]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      go(+btn.dataset.jump);
+      stage.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+    });
+  });
+
+  /* trackpad: two finger horizontal swipe moves the deck one card at a time */
+  let accum = 0, locked = false, decay;
+  stage.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // let vertical scroll through
+    e.preventDefault();
+    if (locked) return;
+    accum += e.deltaX;
+    clearTimeout(decay);
+    decay = setTimeout(() => { accum = 0; }, 220);
+    if (Math.abs(accum) > 42) {
+      go(active + (accum > 0 ? 1 : -1));
+      accum = 0;
+      locked = true;
+      setTimeout(() => { locked = false; }, 520);
+    }
+  }, { passive: false });
+
+  /* touchscreens: a flick still works, and never interferes with a tap */
+  let tx = 0, ty = 0;
+  stage.addEventListener('touchstart', e => {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  stage.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    const dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy)) go(active + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+
+  /* the whole active card opens its case study, not only the arrow */
+  cards.forEach((c, i) => {
+    c.addEventListener('click', e => {
+      if (i !== active) return;
+      if (e.target.closest('a')) return; // the link handles itself
+      const link = c.querySelector('.card__link');
+      if (link) link.click();
+    });
+  });
+
+  /* specular highlight follows the pointer */
+  stage.addEventListener('pointermove', e => {
+    const c = cards[active];
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+
+  layout();
+  paint();
+})();
+
+/* ---- case study routing ---- */
+(function router(){
+  const landing = document.getElementById('landing');
+  const cases = [...document.querySelectorAll('.case')];
+  let caseObserver = null;
+
+  /* blocks rise in as they come into view, on the landing page and inside a case */
+  function armReveals(root, selector){
+    const blocks = [...root.querySelectorAll(selector)];
+    if (reduced || !('IntersectionObserver' in window)) { blocks.forEach(b => b.classList.add('r', 'in')); return null; }
+    blocks.forEach(b => { b.classList.add('r'); b.classList.remove('in'); });
+    const obs = new IntersectionObserver((entries, self) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); self.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    blocks.forEach(b => obs.observe(b));
+    requestAnimationFrame(() => {
+      blocks.forEach(b => { if (b.getBoundingClientRect().top < window.innerHeight * 0.92) b.classList.add('in'); });
+    });
+    setTimeout(() => blocks.forEach(b => b.classList.add('in')), 6000);
+    return obs;
+  }
+
+  const LANDING_BLOCKS = '.deck-section, .index, .foot';
+  const CASE_BLOCKS = '.sec, .case__foot, .shot';
+  armReveals(landing, LANDING_BLOCKS);
+
+  function openCase(i){
+    const view = cases[i];
+    landing.hidden = true;
+    cases.forEach((c, j) => { c.hidden = j !== i; });
+    window.scrollTo(0, 0);
+    if (!reduced) {
+      view.classList.add('is-entering');
+      requestAnimationFrame(() => requestAnimationFrame(() => view.classList.remove('is-entering')));
+    }
+    if (caseObserver) caseObserver.disconnect();
+    caseObserver = armReveals(view, CASE_BLOCKS);
+    const h = view.querySelector('.case__title');
+    if (h) h.focus({ preventScroll: true });
+  }
+
+  function closeCase(){
+    if (caseObserver) { caseObserver.disconnect(); caseObserver = null; }
+    cases.forEach(c => { c.hidden = true; });
+    landing.hidden = false;
+    if (!reduced) {
+      landing.classList.add('is-entering');
+      requestAnimationFrame(() => requestAnimationFrame(() => landing.classList.remove('is-entering')));
+    }
+    landing.querySelectorAll('.r').forEach(b => b.classList.add('in'));
+    const stage = document.getElementById('stage');
+    if (stage) stage.scrollIntoView({ behavior: 'auto', block: 'center' });
+  }
+
+  document.querySelectorAll('[data-case]').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); openCase(+el.dataset.case); });
+  });
+  document.querySelectorAll('.back').forEach(b => b.addEventListener('click', closeCase));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !cases.every(c => c.hidden)) closeCase();
+  });
+})();
+
+/* ---- lightbox ---- */
+(function lightbox(){
+  const box = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  let last = null;
+  function open(source){
+    img.src = source.src;
+    img.alt = source.alt;
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    box.hidden = true;
+    img.src = '';
+    document.body.style.overflow = '';
+    if (last) last.focus();
+  }
+  document.querySelectorAll('.shot__btn').forEach(btn => {
+    btn.addEventListener('click', () => { last = btn; open(btn.querySelector('img')); });
+  });
+  box.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !box.hidden) { e.stopPropagation(); close(); } }, true);
+})();
+
+</script>
+</body>
+</html>
